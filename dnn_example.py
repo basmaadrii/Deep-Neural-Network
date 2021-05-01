@@ -37,10 +37,16 @@ def prepare_data():
 
     return train_x, train_y, test_x, test_y
 
-train_x, train_y, test_x, test_y = prepare_data()
 
-layers_dims = [12288, 20, 7, 5, 1]
 
-parameters, costs = dnn.L_layer_model(train_x, train_y, layers_dims, num_iterations = 2500, print_cost = True)
-pred_train = dnn.predict(train_x, train_y, parameters)
-pred_test = dnn.predict(test_x, test_y, parameters)
+def run_cat_vs_not_cat():
+    train_x, train_y, test_x, test_y = prepare_data()
+
+    layers_dims = [12288, 20, 7, 5, 1]
+    parameters, costs = dnn.L_layer_model(train_x, train_y, layers_dims, num_iterations = 2500, print_cost = True)
+
+    pred_train = dnn.predict(train_x, train_y, parameters)
+    pred_test = dnn.predict(test_x, test_y, parameters)
+
+
+run_cat_vs_not_cat()
